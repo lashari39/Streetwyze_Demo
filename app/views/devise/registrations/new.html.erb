@@ -11,6 +11,11 @@
     </div>
 
     <div class="form-outline mb-4 text-center">
+     <%= f.label :username%><br />
+     <%= f.text_field :username, autofocus: true, autocomplete: "username" , placeholder: "Username"%>
+    </div>
+
+    <div class="form-outline mb-4 text-center">
      <%= f.label :password %>
      <% if @minimum_password_length %>
      <em>(<%= @minimum_password_length %> characters minimum)</em>
