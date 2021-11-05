@@ -11,7 +11,7 @@
   </head>
 
   <body>
-    <p><%= flash[:alert] %></p>
+    <%= render "devise/shared/flash_messages"%>
     <%= yield %>
   </body>
 </html>
