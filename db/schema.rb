@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_27_101315) do
+ActiveRecord::Schema.define(version: 2021_11_10_045234) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "map_assets", force: :cascade do |t|
+    t.string "place"
+    t.string "address"
+    t.string "category"
+    t.string "rate"
+    t.string "review"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_map_assets_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -28,4 +40,5 @@ ActiveRecord::Schema.define(version: 2021_10_27_101315) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "map_assets", "users"
 end
