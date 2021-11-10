@@ -13,32 +13,46 @@
     </div>
   </div>
 </div>
-<table>
+
+<div class="modal fade" id="editUserModal" tabindex="-1" aria-labelledby="editUserModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editUserModalLabel"> Asset </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div id=editUserForm>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="showUserModal" tabindex="-1" aria-labelledby="showUserModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="showUserModalLabel"> Asset </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div id=showUserForm>
+      </div>
+    </div>
+  </div>
+</div>
+
+<table class="table table-bordered table-striped">
   <thead>
     <tr>
-      <th>Place</th>
-      <th>Address</th>
-      <th>Category</th>
-      <th>Rate</th>
-      <th>Review</th>
-      <th>Story</th>
+      <th class="ps-4">Place</th>
+      <th class="ps-4">Address</th>
+      <th class="ps-4">Category</th>
+      <th class="ps-4">Review</th>
       <th colspan="3"></th>
     </tr>
   </thead>
-
-  <tbody>
-  <% @map_asset.each do |map_asset| %>
-	<tr>
-    <td><%= map_asset.place %></td>
-    <td><%= map_asset.address %></td>
-    <td><%= map_asset.category %></td>
-    <td><%= map_asset.rate %></td>
-    <td><%= map_asset.review %></td>
-    <td><%= map_asset.story %></td>
-    <td><%= link_to('Show', @map_asset, data: { bs_toggle: 'modal', bs_target: '#showUserModal', remote: true }) %></td>
-    <td><%= link_to('Edit',  edit_map_asset_path(map_asset), class: 'btn btn-primary btn-lg mb-4', data: { bs_toggle: 'modal', bs_target: '#editUserModal', remote: true }) %></td>
-    <td><%= link_to 'Destroy', map_asset, method: :delete, data: { confirm: 'Are you sure?', remote: true } %></td>
-	</tr>
-	<% end %>
+  <tbody id="userTable">
+    <% @map_assets.each do |map_asset| %>
+      <%= render('records', map_asset: map_asset)%>
+    <% end %>
   </tbody>
 </table>

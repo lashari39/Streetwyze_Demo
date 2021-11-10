@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   resource :user do
   	resources :map_assets
 	end
-  root 'home#index'
+  get 'home/index', to:'home#index'
 	end
