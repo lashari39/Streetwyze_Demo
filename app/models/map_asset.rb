@@ -1,0 +1,2 @@
+class MapAsset < ApplicationRecord
+end
