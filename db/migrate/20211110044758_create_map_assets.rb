@@ -6,7 +6,6 @@ class CreateMapAssets < ActiveRecord::Migration[6.1]
       t.string :category
       t.string :rate
       t.string :review
-      t.string :description
 
       t.timestamps
     end
