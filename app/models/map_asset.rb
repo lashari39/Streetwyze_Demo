@@ -1,4 +1,5 @@
 class MapAsset < ApplicationRecord
+	has_many :stories
 	belongs_to :user
 
 	validates :address, presence: true
