@@ -1,5 +1,5 @@
 class MapAsset < ApplicationRecord
-	has_many :stories
+	has_many :stories, dependent: :delete_all
 	belongs_to :user
 
 	validates :address, presence: true

@@ -1,0 +1,9 @@
+<tr id="storyRow_<%= story.id %>">
+  <td><%= story.place %></td>
+  <td><%= story.address %></td>
+  <td><%= story.category %></td>
+  <td><%= story.review %></td>
+  <td><%= link_to('Show', user_map_asset_story_path(@map_asset, story), class: 'btn btn-info px-3 mx-1', data: { bs_toggle: 'modal', bs_target: '#showStoryModal', remote: true }) %>
+    <%= link_to('Edit', edit_user_map_asset_story_path(@map_asset, story), class: 'btn btn-warning px-3 mx-1', data: { bs_toggle: 'modal', bs_target: '#editStoryModal', remote: true }) %>
+    <%= link_to 'Destroy', user_map_asset_story_path(@map_asset, story), class: 'btn btn-danger px-3 mx-1', method: :delete, data: { confirm: 'Are you sure?', remote: true } %></td>
+</tr>

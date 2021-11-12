@@ -1,14 +1,14 @@
 <center>
-    <%= form_with(model: map_asset, url: user_map_asset_path, local: false) do |form| %>
+    <%= form_with(model: @story, url: user_map_asset_story_path ,local: false) do |form| %>
 
     <div class="modal-body" >
-      <div class = "error_message"></div>
+      <div class = "story_error_message"></div>
     <div class="row">
       <div class="col-lg-3">
         <span><i class="far fa-map"></i></span>
       </div>
       <div class="col-lg-9">
-        <%= form.text_field :place, class: "form-control" %>  
+        <%= form.text_field :place, value: @map_asset.place, readonly: true, class: "form-control" %>  
       </div>
     </div>
 
@@ -17,7 +17,7 @@
         <span><i class="far fa-address-card"></i></span>
       </div>
       <div class="col-lg-9">
-       <%= form.text_field :address, class: "form-control" %>  
+       <%= form.text_field :address, value: @map_asset.address, readonly: true, class: "form-control" %>  
       </div>
     </div>
 
@@ -26,7 +26,7 @@
         <span><i class="fas fa-indent"></i></span>
       </div>
       <div class="col-lg-9">
-        <%= form.select :category, MapAsset::CATEGORY ,class: "form-control" %>
+        <%= form.select :category, Story::CATEGORY ,class: "form-control" %>
       </div>
     </div>
 
@@ -35,11 +35,11 @@
         <%= form.label :I_would_like_to_share %>
       </div>
       <div class="d-flex flex-row mb-3 mt-2 justify-content-evenly">
-        <button class="btn btn-outline-success" id="edit-good" type="button">Good</button>
-        <button class="btn btn-outline-danger" id="edit-bad" type="button">Bad</button>
-        <button class="btn btn-outline-info" id="edit-fix" type="button">Fix</button>
+        <button class="btn btn-outline-success" id="story-good" type="button">Good</button>
+        <button class="btn btn-outline-danger" id="story-bad" type="button">Bad</button>
+        <button class="btn btn-outline-info" id="story-fix" type="button">Fix</button>
       </div>
-      <%= form.text_field :review, class: "form-control", style: 'display: none;', id:"edit-review" %>
+      <%= form.text_field :review, class: "form-control", style: 'display: none;', id:"story-review" %>
     </div>
 
     <div class="row">

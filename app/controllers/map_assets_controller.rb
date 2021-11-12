@@ -1,5 +1,5 @@
 class MapAssetsController < ApplicationController
-	before_action :set_map_asset, only: %i[ show edit update destroy ]
+	before_action :set_map_asset, :authenticate_user!, only: %i[ show edit update destroy ]
 
 	def index
 		@map_assets = MapAsset.all
@@ -21,7 +21,9 @@ class MapAssetsController < ApplicationController
 	end
 	def edit; end
 
-	def show; end
+	def show
+    @story = @map_asset.stories
+  end
 
 	def update
 		respond_to do |format|

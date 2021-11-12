@@ -1,0 +1,6 @@
+<% if @story.errors.any? %>
+  $(".story_error_message").html("<%= escape_javascript render('story_error_messages', story: @story)%>")
+<% else %>
+  $('#storyRow_<%= @story.id %>').replaceWith("<%= escape_javascript render('story_records', story: @story) %>")
+  $('.close-model').click();
+<% end %>
