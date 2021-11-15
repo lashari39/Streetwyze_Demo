@@ -2,5 +2,10 @@
   $(".story_error_message").html("<%= escape_javascript render('story_error_messages', story: @story)%>")
 <% else %>
   $('#storyRow_<%= @story.id %>').replaceWith("<%= escape_javascript render('story_records', story: @story) %>")
+  $("#storyRow_<%= @story.id%>").find(".story_record_star").raty({
+    readOnly: true
+  })
+  $('#asset_info').html("<%= escape_javascript render('map_assets/asset_info', map_asset: @story.map_asset) %>");
+  bind_rating();
   $('.close-model').click();
 <% end %>

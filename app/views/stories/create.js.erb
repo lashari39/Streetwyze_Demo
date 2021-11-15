@@ -1,6 +1,12 @@
 <% if @story.errors.any? %>
-	$(".story_error_message").html("<%= escape_javascript render('story_error_messages', story: @story)%>")
+	$(".story_error_message").html("<%= escape_javascript render('story_error_messages', story: @story)%>");
 <% else %>
-	$('#storyTable').prepend("<%= escape_javascript render('story_records', story: @story) %>")
-	$('.close-model').click();
+	$('#storyTable').prepend("<%= escape_javascript render('story_records', story: @story) %>");
+  $("#storyRow_<%= @story.id%>").find(".story_record_star").raty({
+    readOnly: true
+  })
+  $('#asset_info').html("<%= escape_javascript render('map_assets/asset_info', map_asset: @story.map_asset) %>");
+  $('#userRow_<%= @story.map_asset.id %>').html("<%= escape_javascript render('map_assets/records', map_asset: @story.map_asset) %>")
+  bind_rating();
+  $('.close-model').click();
 <% end %>

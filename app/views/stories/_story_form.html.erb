@@ -20,6 +20,16 @@
        <%= form.text_field :address, value: @map_asset.address, readonly: true, class: "form-control" %>  
       </div>
     </div>
+    <div class="row mt-3">
+      <div class="col-lg-3">
+        <span><i class="far fa-star"></i></span>
+      </div>
+      <div class="col-lg-9">
+        <div class="new_story_star"></div>
+        <span class="no-rating"> I don't want to leave a rating </span>
+       <%= form.text_field :rate, style: 'display: none;', class: "form-control new_story_star_field" %>  
+      </div>
+    </div>
 
     <div class="row mt-3">
       <div class="col-lg-3">
@@ -41,7 +51,6 @@
       </div>
       <%= form.text_field :review, class: "form-control", style: 'display: none;', id:"story-review" %>
     </div>
-
     <div class="row">
       <div class="col-lg-5">
         <%= form.label :description, style: 'float: left;' %>

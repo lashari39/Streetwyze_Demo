@@ -3,9 +3,10 @@
     <td><%= map_asset.address %></td>
     <td><%= map_asset.category %></td>
     <td><%= map_asset.review %></td>
-    <td><%= link_to('Show', user_map_asset_path(map_asset), class: 'btn btn-info px-3 mx-1') %></td>
+    <td><div class="show_asset_rating" data-score="<%= compute_average(map_asset) %>"></td>
+    <td><%= link_to('Show', user_map_asset_path(map_asset), class: 'btn btn-info px-3 mx-1') %>
     <% if current_user == map_asset.user %>
-    <td><%= link_to('Edit', edit_user_map_asset_path(map_asset), class: 'btn btn-warning px-3 mx-1', data: { bs_toggle: 'modal', bs_target: '#editUserModal', remote: true }) %></td>
-    <td><%= link_to 'Destroy', user_map_asset_path(map_asset), class: 'btn btn-danger px-3 mx-1', method: :delete, data: { confirm: 'Are you sure?', remote: true } %></td>
+      <%= link_to('Edit', edit_user_map_asset_path(map_asset), class: 'btn btn-warning px-3 mx-1', data: { bs_toggle: 'modal', bs_target: '#editUserModal', remote: true }) %>
+      <%= link_to 'Destroy', user_map_asset_path(map_asset), class: 'btn btn-danger px-3 mx-1', method: :delete, data: { confirm: 'Are you sure?', remote: true } %></td>
     <% end %>
 </tr>

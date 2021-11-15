@@ -13,7 +13,8 @@ class StoriesController < ApplicationController
   end
   def create
     @map_asset = MapAsset.find(params[:map_asset_id])
-    @story = @map_asset.stories.build(params.require(:story).permit(:category, :place, :address, :rate, :review, :description))
+    @story = @map_asset.stories.build(params.require(:story).permit(:category, :place, :address, :rate, :review, :description ))
+    @story.user_id = current_user.id
     respond_to do |format|
       if @story.save
         format.js
