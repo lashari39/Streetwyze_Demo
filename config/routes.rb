@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   	resources :map_assets do
   		resources :stories
   	end
+    resources :stories
   end
   get 'home/index', to:'home#index'
 end

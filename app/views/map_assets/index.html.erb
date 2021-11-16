@@ -1,4 +1,46 @@
-<h1> Assets </h1>
+<div class="row d-flex justify-content-aroun">
+  <div class="col-lg-3">
+    <h1> Assets </h1>
+  </div>
+  <div class="col-lg-3">
+    <h1><button type="button" class="btn btn-warning px-3 mx-1"><%= link_to('Stories', user_stories_path) %></button></h1>
+  </div>
+</div>
+<%= form_with(url: user_map_assets_path, method: :get) do |f| %>
+<div class="row d-flex justify-content-around">
+  <div class="col-lg-3">
+    <%= f.text_field :place, placeholder: 'Place' %>
+  </div>
+  <div class="col-lg-3">
+    <%= f.text_field :address, placeholder: 'Address' %>
+  </div>
+  <div class="col-lg-3">
+    <span>Category:</span>
+    <%= f.select :category, MapAsset::CATEGORY, include_blank: true %>
+  </div>
+</div>
+
+<div class="row d-flex justify-content-around">
+  <div class="col-lg-3">
+     <%= f.text_field :author, placeholder: 'Author' %>
+  </div>
+  <div class="col-lg-3">
+    <%= f.text_field :any_word, placeholder: 'Any Word' %>
+  </div>
+  <div class="col-lg-3">
+    <%= f.text_field :start_at, as: :string, class: "datepickr" , placeholder: 'From' %>
+  </div>
+</div>
+<div class="row d-flex justify-content-around">
+  <div class="col-lg-3">
+     <%= f.text_field :end_at, as: :string, class: "datepickr", placeholder: 'To' %>
+  </div>
+</div>
+
+<div class="row">
+  <%= f.submit "Search", class: 'btn btn-outline-secondary' %>
+</div>
+<% end %>
 <%= link_to('New Asset', new_user_map_asset_path, class: 'btn btn-primary btn-lg mb-4', data: { bs_toggle: 'modal', bs_target: '#newUserModal', remote: true }) %>
 <!-- Modal -->
 <div class="modal fade" id="newUserModal" tabindex="-1" aria-labelledby="newUserModalLabel" aria-hidden="true">

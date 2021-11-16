@@ -1,4 +1,5 @@
 window.bind_rating = function() {
+	flatpickr(".datepickr", {});
 
 	$('.no-rating').on("click", function() {
 		$('.new_story_star').remove();

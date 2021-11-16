@@ -1,5 +1,14 @@
 class StoriesController < ApplicationController
 
+  def index
+    @stories = Story.all
+    @stories = @stories.search_by_place( params[:place]) if params[:place].present?
+    @stories = @stories.search_by_address( params[:address]) if params[:address].present?
+    @stories = @stories.search_by_category( params[:category]) if params[:category].present?
+    @stories = @stories.search_by_word( params[:any_word]) if params[:any_word].present?
+    @stories = @stories.search_by_author( params[:author]) if params[:author].present?
+    @stories = @stories.search_by_date( params[:start_at], params[:end_at]) if params[:start_at].present? && params[:end_at].present?
+  end
 	def new
 		@map_asset = MapAsset.find(params[:map_asset_id])
 		@story = @map_asset.stories.build
