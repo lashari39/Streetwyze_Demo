@@ -1,0 +1,20 @@
+<p>
+  <strong>Place:</strong>
+  <%= map_asset.place %>
+</p>
+<p>
+  <strong>Address:</strong>
+  <%= map_asset.address %>
+</p>
+<p>
+  <strong>Category:</strong>
+  <%= map_asset.category %>
+</p>
+<p>
+  <strong>Review:</strong>
+  <%= map_asset.review %>
+</p>
+<p>
+  <strong>Rating:</strong>
+  <div class="show_asset_rating" data-score="<%= compute_average(map_asset) %>"></div>
+</p>

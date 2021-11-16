@@ -1,0 +1,10 @@
+<% if story.errors.any? %>
+  <div id="error_explanation">
+  <h2><%= pluralize(map_asset.errors.count, "error") %> prohibited this map_asset from being saved:</h2>
+   <ul>
+    <% story_asset.errors.each do |error| %>
+      <li><%= error.full_message %></li>
+    <% end %>
+   </ul>
+   </div>
+<% end %>

@@ -1,0 +1,52 @@
+<%= form_with(url: user_stories_path, method: :get) do |f| %>
+<div class="row d-flex justify-content-around">
+  <div class="col-lg-3">
+    <%= f.text_field :place, placeholder: 'Place' %>
+  </div>
+  <div class="col-lg-3">
+    <%= f.text_field :address, placeholder: 'Address' %>
+  </div>
+  <div class="col-lg-3">
+    <span>Category:</span>
+    <%= f.select :category, MapAsset::CATEGORY, include_blank: true %>
+  </div>
+</div>
+
+<div class="row d-flex justify-content-around">
+  <div class="col-lg-3">
+     <%= f.text_field :author, placeholder: 'Author' %>
+  </div>
+  <div class="col-lg-3">
+    <%= f.text_field :any_word, placeholder: 'Any Word' %>
+  </div>
+  <div class="col-lg-3">
+    <%= f.text_field :start_at, as: :string, class: "datepickr" , placeholder: 'From' %>
+  </div>
+</div>
+<div class="row d-flex justify-content-around">
+  <div class="col-lg-3">
+     <%= f.text_field :end_at, as: :string, class: "datepickr", placeholder: 'To' %>
+  </div>
+</div>
+
+<div class="row">
+  <%= f.submit "Search", class: 'btn btn-outline-secondary' %>
+</div>
+<% end %>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th class="ps-4">Place</th>
+      <th class="ps-4">Address</th>
+      <th class="ps-4">Category</th>
+      <th class="ps-4">Review</th>
+      <th class="ps-4">Rating</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody id="storyTable">
+    <% @stories.each do |story| %>
+      <%= render('stories/story_records', story: story)%>
+    <% end %>
+  </tbody>
+</table>
