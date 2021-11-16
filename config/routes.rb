@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
+	devise_for :user
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root 'home#index'
-end
+  resource :user do
+  	resources :map_assets
+	end
+  get 'home/index', to:'home#index'
+	end
