@@ -80,7 +80,6 @@ window.bind_rating = function() {
 	});
 }
 
-
 $(document).on('turbolinks:load', function(){
 	bind_rating();
 });
