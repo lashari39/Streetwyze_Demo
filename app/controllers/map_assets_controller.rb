@@ -12,13 +12,10 @@ class MapAssetsController < ApplicationController
 	def create
 		@map_asset = current_user.map_assets.build(map_asset_params)
 		respond_to do |format|
-      if @map_asset.save
-        format.js
-      else
-        format.js
-      end
+      @map_asset.save
+      format.js
     end
-	end
+  end
 
 	def edit; end
 
@@ -26,11 +23,8 @@ class MapAssetsController < ApplicationController
 
 	def update
 		respond_to do |format|
-  		if @map_asset.update(map_asset_params)
-      	format.js
-    	else
-      	format.js
-    	end
+  	 @map_asset.update(map_asset_params)
+      format.js
   	end
 	end
 
