@@ -3,10 +3,22 @@ class MapAssetsController < ApplicationController
 
 	def index
 		@map_assets = MapAsset.all
+    @map_assets = @map_assets.search_by_place( params[:place]) if params[:place].present?
+    @map_assets = @map_assets.search_by_address( params[:address]) if params[:address].present?
+    @map_assets = @map_assets.search_by_category( params[:category]) if params[:category].present?
+    @map_assets = @map_assets.search_by_word( params[:any_word]) if params[:any_word].present?
+    @map_assets = @map_assets.search_by_author( params[:author]) if params[:author].present?
+    @map_assets = @map_assets.search_by_date( params[:start_at], params[:end_at]) if params[:start_at].present? && params[:end_at].present?
+    respond_to do |format|
+      format.html
+      format.csv { send_data @map_assets.to_csv, filename: "asset-#{Date.today}.csv" }
+    end
 	end
+
 	def new
 		@map_asset = current_user.map_assets.build
 	end
+
 	def create
 		@map_asset = current_user.map_assets.build(map_asset_params)
 		respond_to do |format|
@@ -19,6 +31,7 @@ class MapAssetsController < ApplicationController
       end
     end
 	end
+
 	def edit; end
 
 	def show
@@ -50,6 +63,7 @@ class MapAssetsController < ApplicationController
 	def map_asset_params
     params.require(:map_asset).permit(:place, :address, :category, :rate, :review, :story, :description)
   end
+  
   def set_map_asset
   	@map_asset = MapAsset.find(params[:id])
   end

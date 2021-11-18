@@ -4,16 +4,20 @@ class StoriesController < ApplicationController
 		@map_asset = MapAsset.find(params[:map_asset_id])
 		@story = @map_asset.stories.build
 	end
+
   def show
     @story = Story.find(params[:id])
+    @map_asset = @story.map_asset
   end
+
   def edit
-    @map_asset = MapAsset.find(params[:map_asset_id])
     @story = Story.find(params[:id])
+    @map_asset = MapAsset.find(params[:map_asset_id])
   end
+
   def create
     @map_asset = MapAsset.find(params[:map_asset_id])
-    @story = @map_asset.stories.build(params.require(:story).permit(:category, :place, :address, :rate, :review, :description ))
+    @story = @map_asset.stories.build(params.require(:story).permit(:category, :place, :address, :rate, :review, :description, images: [] ))
     @story.user_id = current_user.id
     respond_to do |format|
       if @story.save
@@ -25,11 +29,12 @@ class StoriesController < ApplicationController
       end
     end
   end
+
   def update
     respond_to do |format|
-      @map_asset = MapAsset.find(params[:map_asset_id])
       @story = Story.find(params[:id])
-      if @story.update(params.require(:story).permit(:category, :place, :address, :rate, :review, :description))
+      @map_asset = @story.map_asset
+      if @story.update(params.require(:story).permit(:category, :place, :address, :rate, :review, :description, images: []))
         format.js
         format.html { redirect_to @story, notice: "Map asset was successfully updated." }
       else
@@ -38,6 +43,7 @@ class StoriesController < ApplicationController
       end
     end
   end
+
   def destroy
     @story = Story.find(params[:id])
     @story.destroy
@@ -46,5 +52,4 @@ class StoriesController < ApplicationController
       format.js
     end
   end
-
 end

@@ -1,5 +1,6 @@
 <h1> Assets </h1>
 <%= link_to('New Asset', new_user_map_asset_path, class: 'btn btn-primary btn-lg mb-4', data: { bs_toggle: 'modal', bs_target: '#newUserModal', remote: true }) %>
+<%= link_to('Export Csv', user_map_assets_path(format: :csv), class: 'btn btn-primary btn-lg mb-4') %>
 <!-- Modal -->
 <div class="modal fade" id="newUserModal" tabindex="-1" aria-labelledby="newUserModalLabel" aria-hidden="true">
   <div class="modal-dialog">
