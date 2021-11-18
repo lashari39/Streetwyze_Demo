@@ -23,7 +23,7 @@
           <span><i class="fas fa-indent"></i></span>
         </div>
         <div class="col-lg-9">
-          <%= form.select :category, MapAsset::CATEGORY ,class: "form-control" %>
+          <%= form.select :category, MapAsset::CATEGORY, class: "form-control" %>
         </div>
       </div>
       <div class="row mt-2">
@@ -35,11 +35,11 @@
           <button class="btn btn-outline-danger bad" type="button">Bad</button>
           <button class="btn btn-outline-info fix" type="button">Fix</button>
         </div>
-        <%= form.text_field :review, class: "form-control display review" %>
+        <%= form.hidden_field :review, class: "form-control display review" %>
       </div>
       <div class="row">
         <div class="col-lg-5">
-          <%= form.label :description, style: 'float: left;' %>
+          <%= form.label :description, class: "display" %>
         </div>
       </div>
       <div class="row mt-1">
@@ -47,7 +47,7 @@
       </div>
       <div class="row mt-2">
         <div class="col-lg-5">
-          <%= form.label :images, style: 'float: left;' %>
+          <%= form.label :images, class: "display" %>
         </div>
       </div>
       <div class="row mt-2">
