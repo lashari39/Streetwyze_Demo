@@ -1,5 +1,5 @@
 <center>
-  <%= form_for(@map_asset, url: user_map_assets_path ,remote: true) do |form| %>
+  <%= form_for(@map_asset, remote: true) do |form| %>
     <div class="modal-body" >
       <div class = "error_message"></div>
       <div class="row">
@@ -28,14 +28,14 @@
       </div>
       <div class="row mt-2">
         <div class="col-lg-5">
-          <%= form.label :I_would_like_to_share %>
+          <%= form.label :"I would like to share" %>
         </div>
         <div class="d-flex flex-row mb-3 mt-2 justify-content-evenly">
-          <button class="btn btn-outline-success" id="good" type="button">Good</button>
-          <button class="btn btn-outline-danger" id="bad" type="button">Bad</button>
-          <button class="btn btn-outline-info" id="fix" type="button">Fix</button>
+          <button class="btn btn-outline-success good" type="button">Good</button>
+          <button class="btn btn-outline-danger bad" type="button">Bad</button>
+          <button class="btn btn-outline-info fix" type="button">Fix</button>
         </div>
-        <%= form.text_field :review, class: "form-control", style: 'display: none;', id:"review" %>
+        <%= form.text_field :review, class: "form-control display review" %>
       </div>
       <div class="row">
         <div class="col-lg-5">
