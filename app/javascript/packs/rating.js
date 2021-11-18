@@ -1,5 +1,4 @@
 window.bind_rating = function() {
-
 	$('.no-rating').on("click", function() {
 		$('.new_story_star').remove();
 		$('.no-rating').before("<div class='new_story_star'></div>");
@@ -130,7 +129,6 @@ window.bind_rating = function() {
 		}
 	});
 }
-
 
 $(document).on('turbolinks:load', function(){
 	bind_rating();

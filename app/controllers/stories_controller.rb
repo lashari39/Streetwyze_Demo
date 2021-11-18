@@ -1,5 +1,4 @@
 class StoriesController < ApplicationController
-
 	def new
 		@map_asset = MapAsset.find(params[:map_asset_id])
 		@story = @map_asset.stories.build
