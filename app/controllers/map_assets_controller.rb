@@ -9,9 +9,6 @@ class MapAssetsController < ApplicationController
     @map_assets = @map_assets.search_by_word( params[:any_word]) if params[:any_word].present?
     @map_assets = @map_assets.search_by_author( params[:author]) if params[:author].present?
     @map_assets = @map_assets.search_by_date( params[:start_at], params[:end_at]) if params[:start_at].present? && params[:end_at].present?
-    respond_to do |format|
-      format.html
-      format.csv { send_data @map_assets.to_csv, filename: "asset-#{Date.today}.csv" }
     end
 	end
 
