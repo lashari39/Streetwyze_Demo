@@ -11,7 +11,7 @@ require("channels");
 require("jquery");
 import $ from 'jquery';
 global.$ = jQuery;
-require("./raty")
-require("./rating")
-require("trix")
-require("@rails/actiontext")
+require("./raty");
+require("./rating");
+require("trix");
+require("@rails/actiontext");
