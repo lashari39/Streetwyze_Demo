@@ -1,0 +1,25 @@
+<div class= "modal-body">
+<p>
+  <strong>Place:</strong>
+  <%= story.place %>
+</p>
+<p>
+  <strong>Address:</strong>
+  <%= story.address %>
+</p>
+<p>
+  <strong>Category:</strong>
+  <%= story.category %>
+</p>
+<p>
+  <strong>Review:</strong>
+  <%= story.review %>
+</p>
+<p>
+  <strong>Rating:</strong>
+  <div class="show_story_rating" data-score="<%= story.rate%>"></div>
+</p>
+</div>
+<div class = "modal-footer">
+  <button type="button" class="btn btn-secondary close-model" data-bs-dismiss="modal">Close</button>
+</div>

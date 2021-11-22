@@ -1,4 +1,3 @@
-<div class= "modal-body">
 <p>
   <strong>Place:</strong>
   <%= map_asset.place %>
@@ -15,7 +14,7 @@
   <strong>Review:</strong>
   <%= map_asset.review %>
 </p>
-</div>
-<div class = "modal-footer">
-	<button type="button" class="btn btn-secondary close-model" data-bs-dismiss="modal">Close</button>
-</div>
+<p>
+  <strong>Rating:</strong>
+  <div class="show_asset_rating" data-score="<%= compute_average(map_asset) %>"></div>
+</p>
