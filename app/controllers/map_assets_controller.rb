@@ -11,8 +11,8 @@ class MapAssetsController < ApplicationController
 
 	def create
 		@map_asset = current_user.map_assets.build(map_asset_params)
+    @map_asset.save
 		respond_to do |format|
-      @map_asset.save
       format.js
     end
   end
@@ -22,15 +22,15 @@ class MapAssetsController < ApplicationController
 	def show; end
 
 	def update
-		respond_to do |format|
-  	 @map_asset.update(map_asset_params)
+  	@map_asset.update(map_asset_params)
+    respond_to do |format|
       format.js
-  	end
+    end
 	end
 
 	def destroy
   	@map_asset.destroy
-  	respond_to do |format|
+    respond_to do |format|
       format.js
     end
   end

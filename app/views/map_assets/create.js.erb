@@ -1,6 +1,6 @@
 <% if @map_asset.errors.any? %>
 	$(".error_message").html("<%= escape_javascript render('devise/shared/error_messages', resource: @map_asset)%>")
 <% else %>
-  $('#userTable').prepend("<%= escape_javascript render('records', map_asset: @map_asset) %>")
+  $('#userTable').prepend("<%= escape_javascript render('map_asset', map_asset: @map_asset) %>")
 	$('.close-model').click();
 <% end %>

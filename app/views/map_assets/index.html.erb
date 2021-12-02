@@ -36,8 +36,6 @@
     </tr>
   </thead>
   <tbody id="userTable">
-    <% @map_assets.each do |map_asset| %>
-      <%= render('records', map_asset: map_asset)%>
-    <% end %>
+      <%= render @map_assets %>
   </tbody>
 </table>

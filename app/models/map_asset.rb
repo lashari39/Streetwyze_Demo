@@ -6,7 +6,5 @@ class MapAsset < ApplicationRecord
 
 	has_rich_text :description
 	has_many_attached :images
-  belongs_to :user
-
-	
+  belongs_to :user	
 end

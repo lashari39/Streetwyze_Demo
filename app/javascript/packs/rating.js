@@ -1,64 +1,37 @@
 window.bind_rating = function() {
 	$('.review-button').on('click', function() {
 		reviewButton = $(this)
+		bad = $('.bad');
+		good = $('.good');
+		fix = $('.fix');
 		if(reviewButton.hasClass("bad"))
 		{
-			badButton(reviewButton);
+			pressedButton(reviewButton, "bad", "btn-outline-danger", "btn-danger", good, "good", "btn btn-outline-success", fix, "fix", "btn btn-outline-info");
 		}
 		else if(reviewButton.hasClass("fix"))
 		{
-			fixButton(reviewButton);
+			pressedButton(reviewButton, "fix", "btn-outline-info", "btn-info", bad, "bad", "btn btn-outline-danger", good, "good", "btn btn-outline-success");
 		}
 		else
 		{
-			goodButton(reviewButton);
+			pressedButton(reviewButton, "good", "btn-outline-success", "btn-success", bad, "bad", "btn btn-outline-danger", fix, "fix", "btn btn-outline-info");
 		}
 	});
 }
-function badButton(badButton) {
-	if (badButton.hasClass("btn-outline-danger"))
+function pressedButton(pressedButton, buttonClass1, buttonClass2, buttonClass3, button1, button1Class1, button1Class2, button2, button2Class1, button2Class2) {
+	if (pressedButton.hasClass(buttonClass2))
 		{
-			badButton.removeClass('btn-outline-danger').addClass('btn-danger');
-			$('.review').val("bad");
-			$('.good').removeClass().addClass('review-button good btn btn-outline-success');
-			$('.fix').removeClass().addClass('review-button fix btn btn-outline-info');
+			pressedButton.removeClass(buttonClass2).addClass(buttonClass3);
+			$('.review').val(buttonClass1);
+			button1.removeClass().addClass(`review-button ${button1Class1} ${button1Class2}`);
+			button2.removeClass().addClass(`review-button ${button2Class1} ${button2Class2}`);
 		}
 		else
 		{
-			badButton.removeClass('btn-danger').addClass('btn-outline-danger');
+			pressedButton.removeClass(buttonClass3).addClass(buttonClass2);
 			$('.review').val("");
 		}
 };
-
-function goodButton(goodButton) {
-	if (goodButton.hasClass("btn-outline-success"))
-		{
-			goodButton.removeClass('btn-outline-success').addClass('btn-success');
-			$('.review').val("good");
-			$('.bad').removeClass().addClass('review-button bad btn btn-outline-danger');
-			$('.fix').removeClass().addClass('review-button fix btn btn-outline-info');
-		}
-		else
-		{
-			goodButton.removeClass('btn-success').addClass('btn-outline-success');
-			$('.review').val("");
-		}
-};
-function fixButton(fixButton) {
-	if (fixButton.hasClass("btn-outline-info"))
-		{
-			fixButton.removeClass('btn-outline-info').addClass('btn-info');
-			$('.review').val("fix");
-			$('.bad').removeClass().addClass('review-button bad btn btn-outline-danger');
-			$('.good').removeClass().addClass('review-button good btn btn-outline-success');
-		}
-		else
-		{
-			fixButton.removeClass('btn-info').addClass('btn-outline-info');
-			$('.review').val("");
-		}
-};
-
 $(document).on('turbolinks:load', function(){
 	bind_rating();
 });
