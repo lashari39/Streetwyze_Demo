@@ -1,5 +1,5 @@
 <% if @map_asset.errors.any? %>
-	$(".error_message").html("<%= escape_javascript render('/shared/error_messages', object: @map_asset)%>")
+	$(".error_message").html("<%= escape_javascript render('/shared/errors', object: @map_asset)%>")
 <% else %>
   $('#user_table').prepend("<%= escape_javascript render('map_asset', map_asset: @map_asset) %>")
 	$('.close-model').click();
