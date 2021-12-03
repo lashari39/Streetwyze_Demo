@@ -1,0 +1,11 @@
+<tr id="user_row_<%= map_asset.id %>">
+  <td><%= map_asset.place %></td>
+  <td><%= map_asset.address %></td>
+  <td><%= map_asset.category %></td>
+  <td><%= map_asset.review %></td>
+  <td><%= link_to('Show', map_asset_path(map_asset), class: 'btn btn-info px-3 mx-1', data: { bs_toggle: 'modal', bs_target: '#show_user_modal', remote: true }) %></td>
+  <% if current_user == map_asset.user %>
+    <td><%= link_to('Edit', edit_map_asset_path(map_asset), class: 'btn btn-warning px-3 mx-1', data: { bs_toggle: 'modal', bs_target: '#new_user_modal', remote: true }) %></td>
+    <td><%= link_to 'Destroy', map_asset_path(map_asset), class: 'btn btn-danger px-3 mx-1', method: :delete, data: { confirm: 'Are you sure?', remote: true } %></td>
+  <% end %>
+</tr>
