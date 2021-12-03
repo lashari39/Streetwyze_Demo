@@ -1,6 +1,6 @@
 <% if @map_asset.errors.any? %>
-	$(".error_message").html("<%= escape_javascript render('shared/errors', object: @map_asset) %>")
+  $(".error_message").html("<%= escape_javascript render('shared/errors', object: @map_asset) %>")
 <% else %>
-	$('#user_row_<%= @map_asset.id %>').replaceWith("<%= escape_javascript render('map_asset', map_asset: @map_asset) %>")
-	$('.close-model').click()
+  $('#user_row_<%= @map_asset.id %>').replaceWith("<%= escape_javascript render('map_asset', map_asset: @map_asset) %>")
+  $('.close-model').click()
 <% end %>
